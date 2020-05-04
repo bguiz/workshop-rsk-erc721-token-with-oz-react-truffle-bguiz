@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/bguiz/workshop-rsk-erc721-token-with-oz-react-truffle-bguiz#readme",
   "dependencies": {
+    "@openzeppelin/contracts": "2.5.0",
     "@truffle/hdwallet-provider": "1.0.34"
   }
 }
