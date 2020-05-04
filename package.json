@@ -26,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/bguiz/workshop-rsk-erc721-token-with-oz-react-truffle-bguiz/issues"
   },
-  "homepage": "https://github.com/bguiz/workshop-rsk-erc721-token-with-oz-react-truffle-bguiz#readme"
+  "homepage": "https://github.com/bguiz/workshop-rsk-erc721-token-with-oz-react-truffle-bguiz#readme",
+  "dependencies": {
+    "@truffle/hdwallet-provider": "1.0.34"
+  }
 }
