@@ -1,0 +1,30 @@
+{
+  "name": "workshop-rsk-erc721-token-with-oz-truffle-bguiz",
+  "version": "0.0.0",
+  "description": "ERC721 token with OpenZeppelin, React, and Truffle - RSK Workshop",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bguiz/workshop-rsk-erc721-token-with-oz-react-truffle-bguiz.git"
+  },
+  "keywords": [
+    "rsk",
+    "workshop",
+    "truffle",
+    "openzeppelin",
+    "react",
+    "erc721"
+  ],
+  "author": "bguiz",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/bguiz/workshop-rsk-erc721-token-with-oz-react-truffle-bguiz/issues"
+  },
+  "homepage": "https://github.com/bguiz/workshop-rsk-erc721-token-with-oz-react-truffle-bguiz#readme"
+}
