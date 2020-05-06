@@ -98,7 +98,6 @@ java -version
 
 **RSKj**
 
-
 Get RSKj running locally, this will provide you with a `localhost`-only network,
 for fast testing.
 
@@ -148,6 +147,63 @@ Its output is directed to a log file.
 
 Leave this **running** in an open shell,
 and switch back to your original shell for the rest of this workshop.
+
+Back in your original shell,
+it is a good idea to verify that you are able to
+successfully make JSON-RPC requests before proceeding.
+
+```shell
+curl \
+  http://localhost:4444/ \
+  -s -X POST -H "Content-Type: application/json" \
+  --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}'
+
+```
+
+If this command fails, it is likely that the Regtest node running locally
+(running on your own computer) is not working properly.
+You should see a response similar to the following:
+
+```json
+{"jsonrpc":"2.0","id":1,"result":"0x2246e"}
+
+```
+
+Now let's do the same thing, but this time,
+instead of connecting to something running locally,
+we connect to the [RSK Testnet](https://stats.testnet.rsk.co/).
+You can run your own RSK Testnet node using the same RSKj used earlier, or
+you can simply connect to public node.
+THe latter option requires no setup, and that is what we'll be doing:
+
+```shell
+curl \
+  https://public-node.testnet.rsk.co/1.3.0/ \
+  -s -X POST -H "Content-Type: application/json" \
+  --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}'
+
+```
+
+If this command fails,
+it is likely that your connection to RSK's public node is impeded in some way,
+and you should check for, and relax,
+restrictive network firewall or proxy rules.
+You should see a response similar to the following:
+
+```json
+{"jsonrpc":"2.0","id":1,"result":"0xca035"}
+
+```
+
+The `result` property is the number of the latest block that has been synced.
+Note that this value (`0xca035`)
+is the block number in hexadecimal (base 16),
+so the output above indicates that the current block number
+is `827445` in decimal (base 10).
+This should match the "Best Block" field in the
+[RSK Testnet Stats](https://stats.testnet.rsk.co/) site.
+
+![](./img/stats-testnet-block-number.png)
 
 ## Part 1 - Init Truffle
 
@@ -286,7 +342,7 @@ and save to `.gas-price-testnet.json`.
 ```shell
 curl \
   https://public-node.testnet.rsk.co/1.3.0/ \
-  -X POST -H "Content-Type: application/json" \
+  -s -X POST -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"eth_gasPrice","params":[],"id":1}' \
   > .gas-price-testnet.json
 
