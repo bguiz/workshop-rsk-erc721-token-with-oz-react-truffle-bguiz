@@ -133,11 +133,18 @@ For the purposes of this workshop,
 we will run RSKj on Regtest.
 
 ```shell
-java -cp rskj-core-1.3.0-WASABI-all.jar co.rsk.Start --regtest
+java -cp rskj-core-1.3.0-WASABI-all.jar -Drpc.providers.web.cors=* co.rsk.Start --regtest
 
 ```
 
-If you see no output - that is a good thing.
+If you see no output - that is a good thing:
+Its output is directed to a log file.
+
+> Note the flag provided above: `-Drpc.providers.web.cors=*`
+> This disables cross origin resource sharing protection,
+> effectively allowing any web page to access it.
+> As we want to make JSON-RPC requests from a browser,
+> such as a DApp, we need this flag.
 
 Leave this **running** in an open shell,
 and switch back to your original shell for the rest of this workshop.
